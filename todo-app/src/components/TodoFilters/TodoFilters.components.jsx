@@ -24,13 +24,15 @@ const FiltersButtonContainer = ({ children }) => {
 
 const FilterButton = ({ action, active, filter }) => {
     return (
-        <button className={`hover:text-white cursor-pointer transition-all duration-300 ease-in-out `
-            + (active.toLowerCase().includes(filter.toLowerCase()) ? 'text-blue-400' : 'text-gray-400')
-        }>
+        <button
+            className={`hover:text-white cursor-pointer transition-all duration-300 ease-in-out ${
+                active === filter ? 'text-blue-400' : 'text-gray-400'
+            }`}
+            onClick={action}
+        >
             {filter}
         </button>
-
-    )
-}
+    );
+};
 
 export { FiltersContainer, ItemLeft, FiltersButtonContainer, FilterButton }
